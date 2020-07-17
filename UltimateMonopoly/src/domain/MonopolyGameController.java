@@ -26,6 +26,7 @@ public class MonopolyGameController implements Observable {
 	private ArrayList<Observer> observers = new ArrayList<Observer>();
 
 	private String nextMoveType = "regular";
+	private GameConfiguration config;
 	private boolean allowEnd = true;
 
 	public MonopolyGameController() {
@@ -89,6 +90,15 @@ public class MonopolyGameController implements Observable {
 
 	public void quitGame() {
 		System.exit(0);
+	}
+	
+	public void setUpGameConfig(int startingMoney, int reachingGoSquareMoney, int totalNumberOfHouse,
+			int totalNumberOfHotel, boolean communityChest, boolean luckCards, boolean goToJail, boolean payTax,
+			boolean auction, boolean mortgage, boolean trade, boolean doubleTheRent) {
+		config = new GameConfiguration(startingMoney, reachingGoSquareMoney, totalNumberOfHouse, totalNumberOfHotel,
+				communityChest, luckCards, goToJail, payTax, auction, mortgage, trade, doubleTheRent);
+		config.changeGameSetup();
+		
 	}
 
 	public void nextTurn() {

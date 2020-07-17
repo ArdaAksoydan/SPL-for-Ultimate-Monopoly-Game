@@ -1,7 +1,5 @@
 package domain;
 
-import java.util.Observable;
-
 import ui.SoundManager;
 
 public class MonopolyBot implements Observer, Runnable {
@@ -20,8 +18,8 @@ public class MonopolyBot implements Observer, Runnable {
 			try {
 				if (gameStarted) {
 					count++;
-					if (count >= 15) {
-						if(count == 15)
+					if (count >= 60) {
+						if(count == 60)
 							SoundManager.getInstance().playSound("idle");
 						PlayerObservable.getInstance().notifyObservers("MonopolyBotView", "animate", "idle");
 						state = "idle";
